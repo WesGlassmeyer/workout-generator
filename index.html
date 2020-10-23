@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Create a Workout!</title>
+    <link rel="shortcut icon" href="#">
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Create a Workout!</h1>
+
+        <form id="js-form">
+            <label for="category">Choose a muscle category:</label>
+
+                <select name="category" id="js-search-category">
+                  <option value="8">Arms</option>
+                  <option value="9">Legs</option>
+                  <option value="10">Abs</option>
+                  <option value="11">Chest</option>
+                  <option value="12">Back</option>
+                  <option value="13">Shoulder</option>
+                  <option value="14">Calves</option>
+                </select> <br>
+            <label for="equipment">Choose available equipment:</label>
+                <select name="category" id="js-search-equipment">
+                  <option value="1">Barbell</option>
+                  <option value="8">Bench</option>
+                  <option value="3">Dumbell</option>
+                  <option value="4">Gym Mat</option>
+                  <option value="9">Incline Bench</option>
+                  <option value="10">Kettlebell</option>
+                  <option value="7">Body Weight</option>
+                  <option value="6">Pull Up Bar</option>
+                  <option value="5">Swiss Ball</option>
+                  <option value="2">SZ Bar</option>
+                </select>
+             <input type="submit" value="Go!">
+        </form>
+         <p id="js-error-message" class="error-message"></p>
+        <section id="results" class="hidden">
+          <h2>Search results</h2>
+          <ul id="results-list">
+          </ul>
+          <input id="add" type="submit" value="Add to Workout">
+        </section>
+        <section id="workout" class="hidden2">
+          <ul id="user-created-list">
+          </ul>
+          <input id="reset" type="submit" value="Reset Workout">
+        </section>
+        <h2>Or Let Us Create a Workout For You!</h2>
+        <form>
+        <input type="submit" id="random-workout" value="Go!">
+        </form>
+        <section id="random-results" class="hidden">
+          <h3>Here Is Your Full Body Workout</h3>
+          <ul id="random-results-list">
+          </ul>
+        </section>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
+    <script src="index.js"></script>
+</body>
+</html>
