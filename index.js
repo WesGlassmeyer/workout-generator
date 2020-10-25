@@ -43,14 +43,14 @@ fetch(url)
 }
 
 function displayUserCreatedWorkout(userCreatedWorkout) {
-  $('#user-created-list').empty()
+  $('#user-created-list').empty();
   for (let i = 0; i < userCreatedWorkout.length; i++) {
     if (userCreatedWorkout[i] !== undefined) {
     $('#user-created-list').append(
-      `<li>${userCreatedWorkout[i]}</li>`
-    )}
+      `<li>${userCreatedWorkout[i]}</li>`)
+    }
   }
-  $('#workout').removeClass('hidden2');
+  $('#workout').removeClass('hidden2')
 }
 
 //---These functions are for the random workout creator---
@@ -173,7 +173,7 @@ function getRandomNumber() {
   }
 }
 
-//----These functions are the event handelers---
+//----These functions are the event handlers---
 
 function createWorkout() {
   $('form').submit(event => {
