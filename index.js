@@ -11,17 +11,17 @@ let exercises = []
 
 function displayResults(responseJson) {
   $('#results-list').empty();
+  if (responseJson.results.length === 0) {
+    $('#results-list').append(`<li><h3>No results based on this combination</h3></li>`);
+  } 
   for (let i = 0; i < responseJson.results.length; i++){
     $('#results-list').append(
       `<input type="radio" id="exercise" name="exercise" value= '${responseJson.results[i].name}' checked>
       <label>${responseJson.results[i].name}</label><br>
       <p>${responseJson.results[i].description}</p>`
     )
-   };
-   if (responseJson.results.length === 0) {
-     $('#results-list').append(`<li><h3>No results based on this combination</h3></li>`)
-   } 
-  $('#results').removeClass('hidden');
+   };  
+ $('#results').removeClass('hidden');
 };
 
 function getExercise(searchCategory, searchEquipment) {
@@ -45,9 +45,10 @@ fetch(url)
 function displayUserCreatedWorkout(userCreatedWorkout) {
   $('#user-created-list').empty()
   for (let i = 0; i < userCreatedWorkout.length; i++) {
+    if (userCreatedWorkout[i] !== undefined) {
     $('#user-created-list').append(
       `<li>${userCreatedWorkout[i]}</li>`
-    )
+    )}
   }
   $('#workout').removeClass('hidden2');
 }
@@ -172,7 +173,7 @@ function getRandomNumber() {
   }
 }
 
-//----These functions are the event listeners---
+//----These functions are the event handelers---
 
 function createWorkout() {
   $('form').submit(event => {
@@ -212,5 +213,5 @@ function createRandomWorkout() {
 
 $(createWorkout);
 $(addToWorkout);
-$(resetWorkout)
-$(createRandomWorkout)
+$(resetWorkout);
+$(createRandomWorkout);
