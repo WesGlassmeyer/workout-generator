@@ -14,29 +14,30 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
-  <!-- Top Navigation Menu -->
+     <!-- Top Navigation Menu -->
 <div class="topnav">
-  <a href="index.html" class="active">Workout Generator</a>
-  <div id="myLinks">
-    <a href="index.html">Home</a>
-    <a href="create-a-workout.html">Create a Workout</a>
-    <a href="random-workout.html">Random Workout</a>
-  </div>
-  <a href="javascript:void(0);" class="icon" onclick="myFunction()">
-    <i class="fa fa-bars"></i>
-  </a>
-</div>
+    <a href="index.html" class="active">Workout Generator</a>
+    <div id="myLinks">
+      <a href="index.html">Home</a>
+      <a href="create-a-workout.html">Create a Workout</a>
+      <a href="random-workout.html">Random Workout</a>
+    </div>
+    <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+        <i class="fa fa-bars"></i>
+      </a>
+    </div>
+    
     <div class="container">
       <main>
-        <h2 class="h2">Welcome To The Workout Generator</h2>
-        <div class="welcome">
-        <p>We have two options for you to choose from. You can create a workout of your own by selecting exercises based off of a search for 
-        your desired muscle group and equipment you have available.</p>
-        <p>In the second option we will create a full body workout for you by randomly selecting exercises from our database.</p>
-        <p>Press the button below to begin.</p>
-        </div>
-        <a href="create-a-workout.html"id="create-btn">Create My Own Workout</a>
-        <a href="random-workout.html" id="random-btn">Create A Workout For Me</a>
+        <h2>Or Let Us Create a Workout For You!</h2>
+  <form>
+  <input type="submit" id="random-workout" value="Go!">
+  </form>
+  <section id="random-results" class="hidden">
+    <h3>Here Is Your Full Body Workout</h3>
+    <ul id="random-results-list">
+    </ul>
+  </section>
       </main>
     </div>
 
