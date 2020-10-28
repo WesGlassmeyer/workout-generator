@@ -11,17 +11,20 @@ let exercises = []
 
 function displayResults(responseJson) {
   $('#results-list').empty();
+  $('#results').removeClass('hidden');
   if (responseJson.results.length === 0) {
     $('#results-list').append(`<li><h3>No results based on this combination</h3></li>`);
+    $('#add').addClass('hidden');
+    return
   } 
   for (let i = 0; i < responseJson.results.length; i++){
     $('#results-list').append(
-      `<input type="radio" id="exercise" name="exercise" value= '${responseJson.results[i].name}' checked>
+      `<input type="radio" id="exercise" name="exercise" value= '${responseJson.results[i].name}' checked multiple>
       <label>${responseJson.results[i].name}</label><br>
       <p>${responseJson.results[i].description}</p>`
     )
    };  
- $('#results').removeClass('hidden');
+ $('#add').removeClass('hidden');
 };
 
 function getExercise(searchCategory, searchEquipment) {
@@ -176,7 +179,7 @@ function getRandomNumber() {
 //----These functions are the event handlers---
 
 function createWorkout() {
-  $('form').submit(event => {
+  $('main').on('click','#submit', event => {
     event.preventDefault();
     const searchCategory = $('#js-search-category').val();
     const searchEquipment = $('#js-search-equipment').val();
@@ -185,7 +188,7 @@ function createWorkout() {
 }
 
 function addToWorkout() {
-  $('#add').click(event => {
+  $('main').on('click', '#add', event => {
     event.preventDefault();
     userCreatedWorkout.push($('#exercise:checked').val())
     displayUserCreatedWorkout(userCreatedWorkout)
@@ -193,7 +196,7 @@ function addToWorkout() {
 }
 
 function resetWorkout() {
-  $('#reset').click(event => {
+  $('main').on('click', '#reset', event => {
     event.preventDefault();
     userCreatedWorkout.splice(0,userCreatedWorkout.length)
     $('#user-created-list').empty()
@@ -202,7 +205,7 @@ function resetWorkout() {
 }
 
 function createRandomWorkout() {
-  $('#random-workout').click(event => {
+  $('main').on('click','#random-workout', event => {
     event.preventDefault()
     getAllExercises()
    randomExerciseNumber.splice(0,randomExerciseNumber.length)
@@ -211,7 +214,18 @@ function createRandomWorkout() {
   })
 }
 
+function myFunction() {
+  var x = document.getElementById("myLinks");
+  if (x.style.display === "block") {
+    x.style.display = "none";
+  } else {
+    x.style.display = "block";
+  }
+}
+
+
 $(createWorkout);
 $(addToWorkout);
 $(resetWorkout);
 $(createRandomWorkout);
+
