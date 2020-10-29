@@ -50,7 +50,7 @@ function displayUserCreatedWorkout(userCreatedWorkout) {
   for (let i = 0; i < userCreatedWorkout.length; i++) {
     if (userCreatedWorkout[i] !== undefined) {
     $('#user-created-list').append(
-      `<li>${userCreatedWorkout[i]}</li>`)
+      `<li id="${userCreatedWorkout[i]}">${userCreatedWorkout[i]}</li>`)
     }
   }
   $('#workout').removeClass('hidden2')
@@ -60,9 +60,10 @@ function displayUserCreatedWorkout(userCreatedWorkout) {
 
 function displayRandomExercises(exercises) {
   $('#random-results-list').empty();
+  let exerciseCategory = ["Arms", "Legs", "Abs", "Chest", "Back", "Shoulders", "Calves"]
   for (let i = 0; i < exercises.length; i++) {
     $('#random-results-list').append(
-      `<li>${exercises[i].name}</li>
+      `<h3>${exerciseCategory[i]}</h3><li> ${exercises[i].name}</li>
       <p>${exercises[i].description}</p>`
     )
   }
@@ -193,7 +194,7 @@ function addToWorkout() {
     userCreatedWorkout.push($('#exercise:checked').val())
     displayUserCreatedWorkout(userCreatedWorkout)
   })
-}
+}  
 
 function resetWorkout() {
   $('main').on('click', '#reset', event => {
@@ -214,7 +215,7 @@ function createRandomWorkout() {
   })
 }
 
-function myFunction() {
+function toggleMenu() {
   var x = document.getElementById("myLinks");
   if (x.style.display === "block") {
     x.style.display = "none";

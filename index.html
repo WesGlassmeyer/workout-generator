@@ -22,24 +22,25 @@
     <a href="create-a-workout.html">Create a Workout</a>
     <a href="random-workout.html">Random Workout</a>
   </div>
-  <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+  <a href="javascript:void(0);" class="icon" onclick="toggleMenu()">
     <i class="fa fa-bars"></i>
   </a>
 </div>
+<div class="background">
+<img src="pullup-image.jpg">
     <div class="container">
       <main>
         <h2 class="h2">Welcome To The Workout Generator</h2>
         <div class="welcome">
-        <p>We have two options for you to choose from. You can create a workout of your own by selecting exercises based off of a search for 
-        your desired muscle group and equipment you have available.</p>
-        <p>In the second option we will create a full body workout for you by randomly selecting exercises from our database.</p>
-        <p>Press the button below to begin.</p>
+        <p>Choose from our two options. Either create a workout by searching by muscle group and the equipment you have available and add them
+          to your workout.</p>
+        <a class="button" href="create-a-workout.html"id="create-btn">Create My Own Workout</a>
+        <p>Or we will create a full body workout for you by randomly selecting exercises from our database.</p>
         </div>
-        <a href="create-a-workout.html"id="create-btn">Create My Own Workout</a>
-        <a href="random-workout.html" id="random-btn">Create A Workout For Me</a>
+        <a class="button" href="random-workout.html" id="random-btn">Create A Workout For Me</a>
       </main>
     </div>
-
+  </div>
     <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
     <script src="index.js"></script>
 </body>

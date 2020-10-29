@@ -22,24 +22,25 @@
       <a href="create-a-workout.html">Create a Workout</a>
       <a href="random-workout.html">Random Workout</a>
     </div>
-    <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+    <a href="javascript:void(0);" class="icon" onclick="toggleMenu()">
         <i class="fa fa-bars"></i>
       </a>
     </div>
-    
-    <div class="container">
+    <div class="background">
+      <img src="pullup-image.jpg">
+          <div class="container">
       <main>
-        <h2>Or Let Us Create a Workout For You!</h2>
+        <h2>Let Us Create a Full Body Workout For You!</h2>
   <form>
-  <input type="submit" id="random-workout" value="Go!">
+  <input type="submit" id="random-workout" class="button" value="Go!">
   </form>
   <section id="random-results" class="hidden">
-    <h3>Here Is Your Full Body Workout</h3>
     <ul id="random-results-list">
     </ul>
   </section>
       </main>
     </div>
+    </div>    
 
     <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
     <script src="index.js"></script>
