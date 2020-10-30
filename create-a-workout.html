@@ -1,79 +1,109 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Create a Workout!</title>
-    <link rel="stylesheet" href="index.css">
-    <link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png">
-    <link rel="manifest" href="favicon/site.webmanifest">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-</head>
-<body>
-<div class="topnav">
-  <a href="index.html" class="active">Workout Generator</a>
-  <div id="myLinks">
-    <a href="create-a-workout.html">Create a Workout</a>
-    <a href="random-workout.html">Random Workout</a>
-  </div>
-  <a href="javascript:void(0);" class="icon" onclick="toggleMenu()">
-    <i class="fa fa-bars"></i>
-  </a>
-</div>
-<div class="background">
-  <img src="pullup-image.jpg" alt="man doing pull up">
-      <div class="container">
-      <main>
-        <h2>Create a Workout!</h2>
-  <form id="js-form">
-    <div class="create">
-      <label>Choose a muscle category:</label><br>
-         <select class="button" name="category" id="js-search-category">
-            <option value="8">Arms</option>
-            <option value="9">Legs</option>
-            <option value="10">Abs</option>
-            <option value="11">Chest</option>
-            <option value="12">Back</option>
-            <option value="13">Shoulder</option>
-            <option value="14">Calves</option>
-          </select> <br>
-    </div>
-    <div class="create">
-      <label>Choose available equipment:</label><br>
-          <select class="button" name="category" id="js-search-equipment">
-            <option value="1">Barbell</option>
-            <option value="8">Bench</option>
-            <option value="3">Dumbbell</option>
-            <option value="4">Gym Mat</option>
-            <option value="9">Incline Bench</option>
-            <option value="10">Kettle Bell</option>
-            <option value="7">Body Weight</option>
-            <option value="6">Pull Up Bar</option>
-            <option value="5">Swiss Ball</option>
-            <option value="2">SZ Bar</option>
-          </select><br>
-    </div>
-       <input type="submit" id="submit" class="button" value="Go!">
-  </form>
-   <p id="js-error-message" class="error-message"></p>
-  <section id="results" class="hidden">
-    <h2>Search results</h2>
-    <ul id="results-list" class="results">
-    </ul>
-    <input class="button" id="add" type="submit" value="Add to Workout">
-  </section>
-  <section id="workout" class="hidden2">
-      <ul id="user-created-list" class="list-style">
-      </ul>
-    <input id="reset" type="submit" class="button" value="Reset Workout">
-  </section>
-      </main>
+    <link rel="stylesheet" href="index.css" />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="favicon/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="favicon/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="favicon/favicon-16x16.png"
+    />
+    <link rel="manifest" href="favicon/site.webmanifest" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+  </head>
+  <body>
+    <div class="topnav">
+      <a href="index.html" class="active">Workout Generator</a>
+      <div id="myLinks">
+        <a href="create-a-workout.html">Create a Workout</a>
+        <a href="random-workout.html">Random Workout</a>
       </div>
-</div>
-    <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
+      <a href="javascript:void(0);" class="icon" onclick="toggleMenu()">
+        <i class="fa fa-bars"></i>
+      </a>
+    </div>
+    <div class="background">
+      <img src="pullup-image.jpg" alt="man doing pull up" />
+      <div class="container">
+        <main>
+          <h2>Create a Workout!</h2>
+          <form id="js-form">
+            <div class="create">
+              <label>Choose a muscle category:</label><br />
+              <select class="button" name="category" id="js-search-category">
+                <option value="8">Arms</option>
+                <option value="9">Legs</option>
+                <option value="10">Abs</option>
+                <option value="11">Chest</option>
+                <option value="12">Back</option>
+                <option value="13">Shoulder</option>
+                <option value="14">Calves</option>
+              </select>
+              <br />
+            </div>
+            <div class="create">
+              <label>Choose available equipment:</label><br />
+              <select class="button" name="category" id="js-search-equipment">
+                <option value="1">Barbell</option>
+                <option value="8">Bench</option>
+                <option value="3">Dumbbell</option>
+                <option value="4">Gym Mat</option>
+                <option value="9">Incline Bench</option>
+                <option value="10">Kettle Bell</option>
+                <option value="7">Body Weight</option>
+                <option value="6">Pull Up Bar</option>
+                <option value="5">Swiss Ball</option>
+                <option value="2">SZ Bar</option></select
+              ><br />
+            </div>
+            <input type="submit" id="submit" class="button" value="Go!" />
+          </form>
+          <p id="js-error-message" class="error-message"></p>
+          <section id="results" class="hidden">
+            <h2>Search results</h2>
+            <ul id="results-list" class="results"></ul>
+            <input
+              class="button"
+              id="add"
+              type="submit"
+              value="Add to Workout"
+            />
+          </section>
+          <section id="workout" class="hidden2">
+            <ul id="user-created-list" class="list-style"></ul>
+            <input
+              id="reset"
+              type="submit"
+              class="button"
+              value="Reset Workout"
+            />
+          </section>
+        </main>
+      </div>
+    </div>
+    <script
+      src="https://code.jquery.com/jquery-3.3.1.js"
+      integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+      crossorigin="anonymous"
+    ></script>
     <script src="index.js"></script>
-</body>
+  </body>
 </html>
