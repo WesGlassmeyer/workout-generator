@@ -40,7 +40,7 @@
         href="javascript:void(0);"
         class="icon"
         onclick="toggleMenu()"
-        role="none"
+        aria-label="Navigation icon"
       >
         <i class="fa fa-bars"></i>
       </a>
@@ -49,11 +49,16 @@
       <img src="pullup-image.jpg" alt="man doing pull up" />
       <div class="container">
         <main>
-          <h2>Create a Workout!</h2>
+          <h1>Create a Workout!</h1>
           <form id="js-form">
             <div class="create">
               <label>Choose a muscle category:</label><br />
-              <select class="button" name="category" id="js-search-category">
+              <select
+                class="button"
+                aria-label="choose a muscle category"
+                name="category"
+                id="js-search-category"
+              >
                 <option value="8">Arms</option>
                 <option value="9">Legs</option>
                 <option value="10">Abs</option>
@@ -66,7 +71,12 @@
             </div>
             <div class="create">
               <label>Choose available equipment:</label><br />
-              <select class="button" name="category" id="js-search-equipment">
+              <select
+                class="button"
+                aria-label="choose available equipment"
+                name="category"
+                id="js-search-equipment"
+              >
                 <option value="1">Barbell</option>
                 <option value="8">Bench</option>
                 <option value="3">Dumbbell</option>
