@@ -132,3 +132,12 @@ button:hover {
 .list-style {
   list-style-type: none;
 }
+
+@media only screen and (min-width: 750px) {
+  .container {
+    padding: 0 10px 1050px 10px;
+    position: relative;
+    z-index: 2;
+    text-align: center;
+  }
+}
