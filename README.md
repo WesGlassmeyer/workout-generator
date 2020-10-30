@@ -14,10 +14,10 @@ We all know that we should be getting regular exercise. We also know that there 
 
 # Screenshots
 Landing page
-![Landing page](screenshots/Homepage.jpg)
+![Landing page](screenshots/Homepage.JPG)
 
 Create your own workout
-![Create your own workout](screenshots/Createpage.jpg)
+![Create your own workout](screenshots/Createpage.JPG)
 
 Random workout
-![Random workout](screenshots/Randompage.jpg)
+![Random workout](screenshots/Randompage.JPG)
