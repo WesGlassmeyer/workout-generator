@@ -63,7 +63,7 @@ function displayRandomExercises(exercises) {
   let exerciseCategory = ["Arms", "Legs", "Abs", "Chest", "Back", "Shoulders", "Calves"]
   for (let i = 0; i < exercises.length; i++) {
     $('#random-results-list').append(
-      `<h3>${exerciseCategory[i]}</h3><li> ${exercises[i].name}</li>
+      `<h3><u>${exerciseCategory[i]}</u></h3><li> ${exercises[i].name}</li>
       <p>${exercises[i].description}</p>`
     )
   }
