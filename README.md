@@ -13,8 +13,11 @@ We all know that we should be getting regular exercise. We also know that there 
 - [WGER's Exercise API](https://wger.de/en/software/api)
 
 # Screenshots
-![Landing page](/sceenshots/Homepage.jpg)
+Landing page
+![Landing page](/screenshots/Homepage.jpg)
 
+Create your own workout
 ![Create your own workout](/screenshots/Createpage.jpg)
 
+Random workout
 ![Random workout](/screenshots/Randompage.jpg)
