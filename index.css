@@ -22,6 +22,12 @@ button:hover {
   display: none;
 }
 
+h4 {
+  display: list-item;
+  list-style-type: disc;
+  list-style-position: inside;
+}
+
 .topnav {
   overflow: hidden;
   background-color: #354475;

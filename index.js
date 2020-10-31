@@ -23,7 +23,7 @@ function displayResults(responseJson) {
   }
   for (let i = 0; i < responseJson.results.length; i++) {
     $("#results-list").append(
-      `<input type="radio" id="exercise" name="exercise" value= '${responseJson.results[i].name}' checked multiple>
+      `<input type="radio" name="exercise" value= '${responseJson.results[i].name}' checked>
       <label>${responseJson.results[i].name}</label><br>
       <p>${responseJson.results[i].description}</p>`
     );
@@ -76,14 +76,14 @@ function displayRandomExercises(exercises) {
   ];
   for (let i = 0; i < store.exercises.length; i++) {
     $("#random-results-list").append(
-      `<h3><u>${exerciseCategory[i]}</u></h3><li> ${store.exercises[i].name}</li>
+      `<h3><u>${exerciseCategory[i]}</u></h3><h4>${store.exercises[i].name}</h4>
       <p>${store.exercises[i].description}</p>`
     );
   }
   $("#random-results").removeClass("hidden");
 }
 
-/*function getArmExercises() {
+function getArmExercises() {
   return fetch(
     "https://wger.de/api/v2/exercise/?format=json&language=2&limit=100&category=8"
   )
@@ -172,7 +172,7 @@ function getCalvesExercises() {
       throw new Error(response.statusText);
     })
     .then((response) => response);
-}*/
+}
 
 function getExercisesByCategory(category) {
   for (let i = 0; i < store.category.length; i++) {
@@ -191,9 +191,7 @@ function getExercisesByCategory(category) {
 }
 
 function getAllExercises() {
-  return (
-    Promise.all(getExercisesByCategory())
-      /*return Promise.all([
+  return Promise.all([
     getArmExercises(),
     getLegExercises(),
     getAbsExercises(),
@@ -201,29 +199,28 @@ function getAllExercises() {
     getBackExercises(),
     getShoulderExercises(),
     getCalvesExercises(),
-  ])*/
-      .then((responses) => {
-        for (let i = 0; i < responses.length; i++) {
-          store.responseLength.push(responses[i].results.length);
-        }
-        return responses;
-      })
-      .then((responses) => {
-        getRandomNumber();
-        return responses;
-      })
-      .then((responses) => {
-        for (let i = 0; i < responses.length; i++) {
-          store.exercises.push(
-            responses[i].results[store.randomExerciseNumber[i]]
-          );
-        }
-      })
+  ])
+    .then((responses) => {
+      for (let i = 0; i < responses.length; i++) {
+        store.responseLength.push(responses[i].results.length);
+      }
+      return responses;
+    })
+    .then((responses) => {
+      getRandomNumber();
+      return responses;
+    })
+    .then((responses) => {
+      for (let i = 0; i < responses.length; i++) {
+        store.exercises.push(
+          responses[i].results[store.randomExerciseNumber[i]]
+        );
+      }
+    })
 
-      .then(() => {
-        displayRandomExercises(store.exercises);
-      })
-  );
+    .then(() => {
+      displayRandomExercises(store.exercises);
+    });
 }
 
 function getRandomNumber() {
@@ -248,7 +245,7 @@ function createWorkout() {
 function addToWorkout() {
   $("main").on("click", "#add", (event) => {
     event.preventDefault();
-    store.userCreatedWorkout.push($("#exercise:checked").val());
+    store.userCreatedWorkout.push($("[name|='exercise']:checked").val());
     displayUserCreatedWorkout(store.userCreatedWorkout);
   });
 }
