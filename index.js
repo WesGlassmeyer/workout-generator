@@ -1,11 +1,13 @@
 "use strict";
 
-const searchURL = "https://wger.de/api/v2/exercise/?format=json&language=2";
-
-let randomExerciseNumber = [];
-let userCreatedWorkout = [];
-let responseLength = [];
-let exercises = [];
+const store = {
+  randomExerciseNumber: [],
+  userCreatedWorkout: [],
+  responseLength: [],
+  exercises: [],
+  searchURL: "https://wger.de/api/v2/exercise/?format=json&language=2",
+  category: [8, 9, 10, 11, 12, 13, 14],
+};
 
 //---These functions are for the user created workout---
 
@@ -32,7 +34,7 @@ function displayResults(responseJson) {
 function getExercise(searchCategory, searchEquipment) {
   const categoryFormat = "&category=" + searchCategory;
   const equipmentFormat = "&equipment=" + searchEquipment;
-  const url = searchURL + categoryFormat + equipmentFormat;
+  const url = store.searchURL + categoryFormat + equipmentFormat;
 
   fetch(url)
     .then((response) => {
@@ -49,10 +51,10 @@ function getExercise(searchCategory, searchEquipment) {
 
 function displayUserCreatedWorkout(userCreatedWorkout) {
   $("#user-created-list").empty();
-  for (let i = 0; i < userCreatedWorkout.length; i++) {
-    if (userCreatedWorkout[i] !== undefined) {
+  for (let i = 0; i < store.userCreatedWorkout.length; i++) {
+    if (store.userCreatedWorkout[i] !== undefined) {
       $("#user-created-list").append(
-        `<li id="${userCreatedWorkout[i]}">${userCreatedWorkout[i]}</li>`
+        `<li id="${store.userCreatedWorkout[i]}">${store.userCreatedWorkout[i]}</li>`
       );
     }
   }
@@ -72,16 +74,16 @@ function displayRandomExercises(exercises) {
     "Shoulders",
     "Calves",
   ];
-  for (let i = 0; i < exercises.length; i++) {
+  for (let i = 0; i < store.exercises.length; i++) {
     $("#random-results-list").append(
-      `<h3><u>${exerciseCategory[i]}</u></h3><li> ${exercises[i].name}</li>
-      <p>${exercises[i].description}</p>`
+      `<h3><u>${exerciseCategory[i]}</u></h3><li> ${store.exercises[i].name}</li>
+      <p>${store.exercises[i].description}</p>`
     );
   }
   $("#random-results").removeClass("hidden");
 }
 
-function getArmExercises() {
+/*function getArmExercises() {
   return fetch(
     "https://wger.de/api/v2/exercise/?format=json&language=2&limit=100&category=8"
   )
@@ -170,10 +172,28 @@ function getCalvesExercises() {
       throw new Error(response.statusText);
     })
     .then((response) => response);
+}*/
+
+function getExercisesByCategory(category) {
+  for (let i = 0; i < store.category.length; i++) {
+    return fetch(
+      "https://wger.de/api/v2/exercise/?format=json&language=2&limit=100&category=" +
+        store.category[i]
+    )
+      .then((response) => {
+        if (response.ok) {
+          return response.json();
+        }
+        throw new Error(response.statusText);
+      })
+      .then((response) => response);
+  }
 }
 
 function getAllExercises() {
-  return Promise.all([
+  return (
+    Promise.all(getExercisesByCategory())
+      /*return Promise.all([
     getArmExercises(),
     getLegExercises(),
     getAbsExercises(),
@@ -181,32 +201,35 @@ function getAllExercises() {
     getBackExercises(),
     getShoulderExercises(),
     getCalvesExercises(),
-  ])
-    .then((responses) => {
-      for (let i = 0; i < responses.length; i++) {
-        responseLength.push(responses[i].results.length);
-      }
-      return responses;
-    })
-    .then((responses) => {
-      getRandomNumber();
-      return responses;
-    })
-    .then((responses) => {
-      for (let i = 0; i < responses.length; i++) {
-        exercises.push(responses[i].results[randomExerciseNumber[i]]);
-      }
-    })
+  ])*/
+      .then((responses) => {
+        for (let i = 0; i < responses.length; i++) {
+          store.responseLength.push(responses[i].results.length);
+        }
+        return responses;
+      })
+      .then((responses) => {
+        getRandomNumber();
+        return responses;
+      })
+      .then((responses) => {
+        for (let i = 0; i < responses.length; i++) {
+          store.exercises.push(
+            responses[i].results[store.randomExerciseNumber[i]]
+          );
+        }
+      })
 
-    .then(() => {
-      displayRandomExercises(exercises);
-    });
+      .then(() => {
+        displayRandomExercises(store.exercises);
+      })
+  );
 }
 
 function getRandomNumber() {
-  for (let i = 0; i < responseLength.length; i++) {
-    randomExerciseNumber.push(
-      Math.floor(Math.random() * (responseLength[i] - 1))
+  for (let i = 0; i < store.responseLength.length; i++) {
+    store.randomExerciseNumber.push(
+      Math.floor(Math.random() * (store.responseLength[i] - 1))
     );
   }
 }
@@ -225,15 +248,15 @@ function createWorkout() {
 function addToWorkout() {
   $("main").on("click", "#add", (event) => {
     event.preventDefault();
-    userCreatedWorkout.push($("#exercise:checked").val());
-    displayUserCreatedWorkout(userCreatedWorkout);
+    store.userCreatedWorkout.push($("#exercise:checked").val());
+    displayUserCreatedWorkout(store.userCreatedWorkout);
   });
 }
 
 function resetWorkout() {
   $("main").on("click", "#reset", (event) => {
     event.preventDefault();
-    userCreatedWorkout.splice(0, userCreatedWorkout.length);
+    store.userCreatedWorkout.splice(0, store.userCreatedWorkout.length);
     $("#user-created-list").empty();
     $("#workout").addClass("hidden2");
   });
@@ -243,9 +266,9 @@ function createRandomWorkout() {
   $("main").on("click", "#random-workout", (event) => {
     event.preventDefault();
     getAllExercises();
-    randomExerciseNumber.splice(0, randomExerciseNumber.length);
-    responseLength.splice(0, responseLength.length);
-    exercises.splice(0, exercises.length);
+    store.randomExerciseNumber = [];
+    store.responseLength = [];
+    store.exercises = [];
   });
 }
 
@@ -258,7 +281,11 @@ function toggleMenu() {
   }
 }
 
-$(createWorkout);
-$(addToWorkout);
-$(resetWorkout);
-$(createRandomWorkout);
+function initializePage() {
+  createWorkout();
+  addToWorkout();
+  resetWorkout();
+  createRandomWorkout();
+}
+
+$(initializePage);
