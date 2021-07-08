@@ -83,99 +83,7 @@ function displayRandomExercises(exercises) {
   $("#random-results").removeClass("hidden");
 }
 
-// function getArmExercises() {
-//   return fetch(
-//     "https://wger.de/api/v2/exercise/?format=json&language=2&limit=100&category=8"
-//   )
-//     .then((response) => {
-//       if (response.ok) {
-//         return response.json();
-//       }
-//       throw new Error(response.statusText);
-//     })
-//     .then((response) => response);
-// }
-
-// function getLegExercises() {
-//   return fetch(
-//     "https://wger.de/api/v2/exercise/?format=json&language=2&limit=100&category=9"
-//   )
-//     .then((response) => {
-//       if (response.ok) {
-//         return response.json();
-//       }
-//       throw new Error(response.statusText);
-//     })
-//     .then((response) => response);
-// }
-
-// function getAbsExercises() {
-//   return fetch(
-//     "https://wger.de/api/v2/exercise/?format=json&language=2&limit=100&category=10"
-//   )
-//     .then((response) => {
-//       if (response.ok) {
-//         return response.json();
-//       }
-//       throw new Error(response.statusText);
-//     })
-//     .then((response) => response);
-// }
-
-// function getChestExercises() {
-//   return fetch(
-//     "https://wger.de/api/v2/exercise/?format=json&language=2&limit=100&category=11"
-//   )
-//     .then((response) => {
-//       if (response.ok) {
-//         return response.json();
-//       }
-//       throw new Error(response.statusText);
-//     })
-//     .then((response) => response);
-// }
-
-// function getBackExercises() {
-//   return fetch(
-//     "https://wger.de/api/v2/exercise/?format=json&language=2&limit=100&category=12"
-//   )
-//     .then((response) => {
-//       if (response.ok) {
-//         return response.json();
-//       }
-//       throw new Error(response.statusText);
-//     })
-//     .then((response) => response);
-// }
-
-// function getShoulderExercises() {
-//   return fetch(
-//     "https://wger.de/api/v2/exercise/?format=json&language=2&limit=100&category=13"
-//   )
-//     .then((response) => {
-//       if (response.ok) {
-//         return response.json();
-//       }
-//       throw new Error(response.statusText);
-//     })
-//     .then((response) => response);
-// }
-
-// function getCalvesExercises() {
-//   return fetch(
-//     "https://wger.de/api/v2/exercise/?format=json&language=2&limit100&category=14"
-//   )
-//     .then((response) => {
-//       if (response.ok) {
-//         return response.json();
-//       }
-//       throw new Error(response.statusText);
-//     })
-//     .then((response) => response);
-// }
-
 function getExercisesByCategory(categoryNumber) {
-  // for (let i = 0; i < store.category.length; i++) {
   return fetch(
     "https://wger.de/api/v2/exercise/?format=json&language=2&limit=100&category=" +
       categoryNumber
@@ -191,15 +99,6 @@ function getExercisesByCategory(categoryNumber) {
 // }
 
 function getAllExercises() {
-  // return Promise.all([
-  //   getArmExercises(),
-  //   getLegExercises(),
-  //   getAbsExercises(),
-  //   getChestExercises(),
-  //   getBackExercises(),
-  //   getShoulderExercises(),
-  //   getCalvesExercises(),
-  // ])
   let allExercises = store.category.map((categoryNumber) => {
     return getExercisesByCategory(categoryNumber);
   });
