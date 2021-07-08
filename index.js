@@ -23,9 +23,9 @@ function displayResults(responseJson) {
   }
   for (let i = 0; i < responseJson.results.length; i++) {
     $("#results-list").append(
-      `<input type="radio" name="exercise" value= '${responseJson.results[i].name}' checked>
+      `<div class="result-item"><input type="radio" name="exercise" value= '${responseJson.results[i].name}' checked>
       <label>${responseJson.results[i].name}</label><br>
-      <p>${responseJson.results[i].description}</p>`
+      <p>${responseJson.results[i].description}</p></div>`
     );
   }
   $("#add").removeClass("hidden");
@@ -54,7 +54,7 @@ function displayUserCreatedWorkout(userCreatedWorkout) {
   for (let i = 0; i < store.userCreatedWorkout.length; i++) {
     if (store.userCreatedWorkout[i] !== undefined) {
       $("#user-created-list").append(
-        `<li id="${store.userCreatedWorkout[i]}">${store.userCreatedWorkout[i]}</li>`
+        `<li class="created-list-li" id="${store.userCreatedWorkout[i]}">${store.userCreatedWorkout[i]}</li>`
       );
     }
   }
@@ -76,8 +76,8 @@ function displayRandomExercises(exercises) {
   ];
   for (let i = 0; i < store.exercises.length; i++) {
     $("#random-results-list").append(
-      `<h3><u>${exerciseCategory[i]}</u></h3><h4>${store.exercises[i].name}</h4>
-      <p>${store.exercises[i].description}</p>`
+      `<div class="result-item"><h3><u>${exerciseCategory[i]}</u></h3><h4>${store.exercises[i].name}</h4>
+      <p>${store.exercises[i].description}</p></div>`
     );
   }
   $("#random-results").removeClass("hidden");

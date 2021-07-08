@@ -4,6 +4,7 @@
 
 body {
   font-family: "Roboto", sans-serif;
+  margin: 0px;
 }
 
 button:hover {
@@ -40,9 +41,9 @@ h4 {
 
 .topnav a {
   color: white;
-  padding: 14px 16px;
+  padding: 14px 15px;
   text-decoration: none;
-  font-size: 17px;
+  font-size: 20px;
   display: block;
 }
 
@@ -52,6 +53,10 @@ h4 {
   position: absolute;
   right: 0;
   top: 0;
+}
+
+.topnav a.icon:hover {
+  background-color: black;
 }
 
 .topnav a:hover {
@@ -66,14 +71,16 @@ h4 {
 .button {
   font: bold 15px Arial;
   text-decoration: none;
-  background-color: #e4ebff;
-  color: #333333;
+  background-color: #445692;
+  color: white;
   padding: 6px 12px 6px 12px;
-  border-top: 1px solid #cccccc;
+  /* border-top: 1px solid #cccccc;
   border-right: 1px solid #333333;
   border-bottom: 1px solid #333333;
-  border-left: 1px solid #cccccc;
+  border-left: 1px solid #cccccc; */
+  border: 1px solid #333333;
   border-radius: 4px;
+  margin-top: 10px;
 }
 
 .background {
@@ -91,31 +98,69 @@ h4 {
   text-align: center;
 }
 
-.background img {
-  position: absolute;
+/* .background img {
+  position: fixed;
   left: 0;
-  top: 0;
+  top: 48px;
   width: 100%;
   height: auto;
   opacity: 0.2;
-}
+} */
 
 .results {
   text-align: left;
 }
 
 .create {
-  padding-bottom: 10px;
+  margin-top: 25px;
 }
 
 .list-style {
-  list-style-type: none;
+  /* list-style-type: none; */
   text-align: left;
+  padding-inline-start: 20px;
 }
 
 p,
 ul {
   text-shadow: 0 0 10px white;
+}
+
+h1 {
+  margin-bottom: 0px;
+  font-size: 24px;
+}
+
+.p1 {
+  margin-top: 30px;
+}
+
+.p2 {
+  margin-top: 40px;
+}
+
+.button.go {
+  margin-top: 30px;
+}
+
+.result-item {
+  border: 1px solid black;
+  border-radius: 10px;
+  padding: 10px;
+  margin-bottom: 10px;
+  background-color: #c8cedb;
+}
+
+.created-list-li {
+  margin-top: 15px;
+}
+
+#random-workout {
+  margin-top: 20px;
+}
+
+#random-results {
+  margin-top: 20px;
 }
 
 @media only screen and (min-width: 750px) {
@@ -124,5 +169,24 @@ ul {
     position: relative;
     z-index: 2;
     text-align: center;
+  }
+
+  #random-results-list {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+  }
+
+  .result-item {
+    width: 40vw;
+    margin-bottom: 20px;
+  }
+
+  #results-list {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
   }
 }

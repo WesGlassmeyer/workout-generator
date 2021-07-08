@@ -7,8 +7,16 @@
     <meta name="description" content="Workout Generator App" />
     <meta name="title" property="og:title" content="Workout Generator" />
     <meta property="og:type" content="Website" />
-    <meta name="image" property="og:image" content="https://live.staticflickr.com/65535/51258438658_a8454620b8_m.jpg" />
-    <meta name="description" property="og:description" content="Workout Generator" />
+    <meta
+      name="image"
+      property="og:image"
+      content="https://live.staticflickr.com/65535/51258438658_a8454620b8_m.jpg"
+    />
+    <meta
+      name="description"
+      property="og:description"
+      content="Workout Generator"
+    />
     <meta name="author" content="Wes Glassmeyer" />
     <title>Create a Workout!</title>
     <link rel="stylesheet" href="index.css" />
@@ -52,27 +60,31 @@
       </a>
     </nav>
     <div class="background">
-      <img src="pullup-image.jpg" alt="man doing pull up" />
+      <!-- <img src="pullup-image.jpg" alt="man doing pull up" /> -->
       <div class="container">
         <main>
           <h1>Welcome To The Workout Generator</h1>
           <div>
-            <p>
-              Choose from our two options. Either create a workout by searching
-              a muscle group and the equipment you have available and add the
-              exercise to your workout.
-            </p>
-            <a class="button" href="create-a-workout.html" id="create-btn"
-              >Create a Workout</a
+            <div class="p1">
+              <p>
+                Choose from our two options. Either create a workout by
+                searching a muscle group and the equipment you have available
+                and add the exercise to your workout.
+              </p>
+              <a class="button" href="create-a-workout.html" id="create-btn"
+                >Create a Workout</a
+              >
+            </div>
+            <div class="p2">
+              <p>
+                Or we will create a full body workout for you by randomly
+                selecting exercises from our database.
+              </p>
+            </div>
+            <a class="button" href="random-workout.html" id="random-btn"
+              >Random Workout</a
             >
-            <p>
-              Or we will create a full body workout for you by randomly
-              selecting exercises from our database.
-            </p>
           </div>
-          <a class="button" href="random-workout.html" id="random-btn"
-            >Random Workout</a
-          >
         </main>
       </div>
     </div>
